@@ -1,0 +1,54 @@
+<svg width="800" height="700" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a maritime training institution">
+  <defs>
+    <linearGradient id="orgBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a3659"/>
+      <stop offset="100%" stop-color="#031e36"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="700" fill="url(#orgBg)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 120H800M0 260H800"/>
+    <path d="M140 0V400M400 0V400M660 0V400"/>
+  </g>
+
+  <!-- institution building -->
+  <g>
+    <!-- flag -->
+    <line x1="400" y1="140" x2="400" y2="230" stroke="#dcb45f" stroke-width="3"/>
+    <path d="M400 140 L452 155 L400 172 Z" fill="#df202c"/>
+
+    <!-- pediment -->
+    <path d="M250 260 L400 210 L550 260 Z" fill="#0e4f7c"/>
+    <rect x="235" y="255" width="330" height="18" fill="#123057"/>
+
+    <!-- columns -->
+    <g fill="#dfe6ea" fill-opacity="0.92">
+      <rect x="260" y="278" width="20" height="180"/>
+      <rect x="320" y="278" width="20" height="180"/>
+      <rect x="380" y="278" width="20" height="180"/>
+      <rect x="440" y="278" width="20" height="180"/>
+      <rect x="500" y="278" width="20" height="180"/>
+    </g>
+
+    <!-- base -->
+    <rect x="230" y="458" width="340" height="26" fill="#123057"/>
+    <rect x="210" y="484" width="380" height="18" fill="#0a3659"/>
+
+    <!-- steps -->
+    <rect x="190" y="502" width="420" height="14" fill="#062b4a"/>
+    <rect x="170" y="516" width="460" height="14" fill="#031e36"/>
+  </g>
+
+  <!-- certificate / seal motif, lower right -->
+  <g transform="translate(560,470)">
+    <circle cx="0" cy="0" r="56" fill="#df202c" fill-opacity="0.14" stroke="#df202c" stroke-opacity="0.5" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#df202c" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="1 6"/>
+    <path d="m-14 2 9 9 20-20" fill="none" stroke="#f2ede0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- waterline -->
+  <path d="M0 560 Q140 546 280 560 T560 560 T800 560 V700 H0 Z" fill="#031c33"/>
+  <path d="M0 560 Q140 546 280 560 T560 560 T800 560" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+  <path d="M0 620 Q160 606 320 620 T640 620 T800 620 V700 H0 Z" fill="#021728"/>
+</svg>
