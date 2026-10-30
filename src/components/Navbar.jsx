@@ -7,11 +7,13 @@ import { mainNav } from "../data/siteContent";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const [pathname, setPathname] = useState(location.pathname);
-  if (pathname !== location.pathname) {
-    setPathname(location.pathname);
+  const followSection = (destination) => {
     setOpen(false);
-  }
+    if (`${location.pathname}${location.hash}` === destination && destination.includes("#")) {
+      const id = destination.slice(destination.indexOf("#") + 1);
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <header className="site-header">
@@ -32,7 +34,7 @@ export default function Navbar() {
                 </NavLink>
                 {item.children && (
                   <div className="nav-dropdown">
-                    {item.children.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
+                    {item.children.map(([label, to]) => <Link key={to} to={to} onClick={() => followSection(to)}>{label}</Link>)}
                   </div>
                 )}
               </div>
@@ -40,7 +42,7 @@ export default function Navbar() {
           </nav>
           <div className="nav-actions">
             <Link className="member-login" to="/membership">Member Area</Link>
-            <Link className="btn btn--red btn--small" to="/membership/apply">Join MCPDC <Icon name="arrow" size={16} /></Link>
+            <Link className="btn btn--red btn--small" to="/membership#apply">Join MCPDC <Icon name="arrow" size={16} /></Link>
             <button className="menu-button" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
               <Icon name={open ? "close" : "menu"} />
             </button>
@@ -50,8 +52,8 @@ export default function Navbar() {
           <nav className="mobile-nav shell" aria-label="Mobile navigation">
             {mainNav.map((item) => (
               <div key={item.to} className="mobile-nav__group">
-                <NavLink to={item.to} end={item.to === "/"}>{item.label}</NavLink>
-                {item.children && <div className="mobile-nav__children">{item.children.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}</div>}
+                <NavLink to={item.to} end={item.to === "/"} onClick={() => setOpen(false)}>{item.label}</NavLink>
+                {item.children && <div className="mobile-nav__children">{item.children.map(([label, to]) => <Link key={to} to={to} onClick={() => followSection(to)}>{label}</Link>)}</div>}
               </div>
             ))}
           </nav>

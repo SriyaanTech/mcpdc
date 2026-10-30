@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-banner">
         <div className="shell footer-banner__inner">
           <p>Advancing competence across the global maritime industry.</p>
-          <Link to="/membership/apply" className="btn btn--red">Start your membership application →</Link>
+          <Link to="/membership#apply" className="btn btn--red">Start your membership application →</Link>
         </div>
       </div>
       <div className="shell footer-main">
