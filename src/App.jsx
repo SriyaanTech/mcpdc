@@ -1,6 +1,7 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToSection from "./components/ScrollToSection";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Accreditation from "./pages/Accreditation";
@@ -11,13 +12,22 @@ import KnowledgeHub from "./pages/KnowledgeHub";
 import Awards from "./pages/Awards";
 import VerifyCertificate from "./pages/VerifyCertificate";
 import Contact from "./pages/Contact";
-import DetailPage from "./pages/DetailPage";
 import NotFound from "./pages/NotFound";
-import { detailPages } from "./data/siteContent";
+import { mainNav } from "./data/siteContent";
+
+// Keep previously published detail URLs working, but show their section on
+// the consolidated parent page instead of rendering a separate detail page.
+const legacySectionRoutes = mainNav.flatMap((item) =>
+  (item.children || []).map(([, anchor]) => {
+    const [parentPath, sectionId] = anchor.split("#");
+    return { oldPath: `${parentPath}/${sectionId}`, anchor };
+  })
+);
 
 export default function App() {
   return (
     <div className="app-shell">
+      <ScrollToSection />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,16 +36,13 @@ export default function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/directory" element={<Directory />} />
-        <Route path="/directory/approved-institutions" element={<Directory />} />
-        <Route path="/directory/accredited-courses" element={<Directory />} />
-        <Route path="/directory/global-member-directory" element={<Directory />} />
         <Route path="/knowledge-hub" element={<KnowledgeHub />} />
         <Route path="/awards" element={<Awards />} />
         <Route path="/verify-certificate" element={<VerifyCertificate />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/contact/enquiry" element={<Contact />} />
-        <Route path="/contact/support" element={<Contact />} />
-        {Object.entries(detailPages).map(([path, data]) => <Route key={path} path={path} element={<DetailPage data={data} />} />)}
+        {legacySectionRoutes.map(({ oldPath, anchor }) => (
+          <Route key={oldPath} path={oldPath} element={<Navigate to={anchor} replace />} />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

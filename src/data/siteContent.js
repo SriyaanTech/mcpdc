@@ -84,7 +84,14 @@ export const mainNav = [
       ["Support", "/contact/support"],
     ],
   },
-];
+].map((item) => ({
+  ...item,
+  // Submenu items now jump to sections within their parent page.
+  children: item.children?.map(([label, path]) => [
+    label,
+    `${item.to}#${path === item.to ? "contact-us" : path.split("/").at(-1)}`,
+  ]),
+}));
 
 export const disruptors = [
   "Alternative fuels",
@@ -146,19 +153,19 @@ export const overviewCards = [
     icon: "institution",
     title: "Institutional Membership",
     text: "Recognising maritime organisations committed to quality learning and professional development.",
-    to: "/accreditation/institutional-membership",
+    to: "/accreditation#institutional-membership",
   },
   {
     icon: "course",
     title: "Course Accreditation",
     text: "Professional development programmes can be assessed within the MCPDC quality framework.",
-    to: "/accreditation/course-accreditation",
+    to: "/accreditation#course-accreditation",
   },
   {
     icon: "members",
     title: "Professional Membership",
     text: "Build a recognised record of professional development throughout your career.",
-    to: "/membership/professional-membership",
+    to: "/membership#professional-membership",
   },
   {
     icon: "recognition",
@@ -169,9 +176,9 @@ export const overviewCards = [
 ];
 
 export const quickActions = [
-  ["institution", "Approved Institutions", "View recognised maritime education and training providers.", "/directory/approved-institutions"],
-  ["course", "Accredited Courses", "Explore quality-assured maritime courses.", "/directory/accredited-courses"],
-  ["members", "Global Member Directory", "Connect with verified maritime professionals.", "/directory/global-member-directory"],
+  ["institution", "Approved Institutions", "View recognised maritime education and training providers.", "/directory#approved-institutions"],
+  ["course", "Accredited Courses", "Explore quality-assured maritime courses.", "/directory#accredited-courses"],
+  ["members", "Global Member Directory", "Connect with verified maritime professionals.", "/directory#global-member-directory"],
   ["shield", "Certificate Verification", "Verify the authenticity of MCPDC certificates.", "/verify-certificate"],
 ];
 

@@ -27,7 +27,7 @@ export default function Home() {
             <h2>Why MCPDC?</h2>
             <p>Professionals must continuously update their knowledge and competence beyond mandatory statutory training.</p>
             <p>MCPDC provides an internationally recognised framework that enables organisations and maritime professionals to demonstrate their commitment to excellence through structured Continuing Professional Development.</p>
-            <Link className="btn btn--red" to="/about/why-choose-mcpdc">Learn More About Us <Icon name="arrow" size={17} /></Link>
+            <Link className="btn btn--red" to="/about#why-choose-mcpdc">Learn More About Us <Icon name="arrow" size={17} /></Link>
           </div>
           <article className="purpose-card"><Icon name="globe" size={46} /><h3>Our Vision</h3><p>To become the world's most respected independent professional body for Maritime Continuing Professional Development.</p></article>
           <article className="purpose-card"><Icon name="target" size={46} /><h3>Our Mission</h3><p>To establish internationally recognised standards that promote continuous learning, professional competence, innovation, and excellence throughout the global maritime industry.</p></article>
@@ -55,8 +55,8 @@ export default function Home() {
       </section>
 
       <section className="benefit-split">
-        <BenefitPanel image={organisationWorker} title="Benefits for Organisations" items={organisationBenefits} cta="Institutional Membership" to="/accreditation/institutional-membership" />
-        <BenefitPanel image={professionalOfficer} title="Benefits for Maritime Professionals" items={professionalBenefits} cta="Professional Membership" to="/membership/professional-membership" />
+        <BenefitPanel image={organisationWorker} title="Benefits for Organisations" items={organisationBenefits} cta="Institutional Membership" to="/accreditation#institutional-membership" />
+        <BenefitPanel image={professionalOfficer} title="Benefits for Maritime Professionals" items={professionalBenefits} cta="Professional Membership" to="/membership#professional-membership" />
       </section>
 
       <section className="standards-section section section--white">

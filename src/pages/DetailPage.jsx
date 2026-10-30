@@ -27,7 +27,7 @@ export default function DetailPage({ data }) {
   );
 }
 
-function ApplicationForm({ type }) {
+export function ApplicationForm({ type, embedded = false }) {
   const [form, setForm] = useState({ name: "", email: "", organisation: "", message: "" });
   const [status, setStatus] = useState("");
   const submit = async (event) => {
@@ -43,7 +43,7 @@ function ApplicationForm({ type }) {
     }
   };
   return (
-    <div className="shell form-section">
+    <div className={embedded ? "form-section form-section--embedded" : "shell form-section"}>
       <div><p className="eyebrow">Online submission</p><h2>Submit your details</h2><p>Your submission is logged for council review.</p></div>
       <form className="site-form" onSubmit={submit}>
         <label>Name<input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></label>

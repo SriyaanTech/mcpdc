@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import oceanBannerPhoto from "../assets/site/ocean-banner-photo.png";
+import oceanBannerPhoto from "../assets/site/carousel-1.jpg";
 
 export default function PageHero({ eyebrow, title, intro }) {
   return (
