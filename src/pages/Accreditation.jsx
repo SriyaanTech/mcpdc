@@ -46,7 +46,7 @@ function AccreditationEnquiry() {
       <div className="approved-form-row"><label>Your name<input required placeholder="Full name" value={form.name} onChange={e => setForm({...form,name:e.target.value})}/></label><label>Work email<input required type="email" placeholder="name@organisation.com" value={form.email} onChange={e => setForm({...form,email:e.target.value})}/></label></div>
       <label>Organisation name<input required placeholder="Organisation / Institution" value={form.organisation} onChange={e => setForm({...form,organisation:e.target.value})}/></label>
       <label>How can we help?<textarea rows={4} placeholder="Briefly describe your organisation or course" value={form.message} onChange={e => setForm({...form,message:e.target.value})}/></label>
-      <div className="approved-form-actions"><button className="btn btn--red" type="submit">Submit enquiry <Icon name="arrow" size={16}/></button><small>HTML form submission requires the project API to be available.</small></div>
+      <div className="approved-form-actions"><button className="btn btn--red" type="submit">Submit enquiry <Icon name="arrow" size={16}/></button></div>
       {status && <p role="status" className="approved-form-status">{status}</p>}
     </form>
   );
